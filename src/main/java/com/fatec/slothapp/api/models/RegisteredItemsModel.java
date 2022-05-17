@@ -9,6 +9,7 @@ public class RegisteredItemsModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private BigInteger registeredItemsId;
     private String itemName;
     private String imageName;
     private String itemType;
@@ -16,16 +17,25 @@ public class RegisteredItemsModel {
     private BigInteger messageRef;
     private String reactionRef;
 
-    public RegisteredItemsModel(String imageName, String itemType, String itemName, int itemPrice, BigInteger messageRef, String reactionRef) {
+    public RegisteredItemsModel(BigInteger registeredItemsId, String itemName, String imageName, String itemType, int itemPrice, BigInteger messageRef, String reactionRef) {
+        this.registeredItemsId = registeredItemsId;
+        this.itemName = itemName;
         this.imageName = imageName;
         this.itemType = itemType;
-        this.itemName = itemName;
         this.itemPrice = itemPrice;
         this.messageRef = messageRef;
         this.reactionRef = reactionRef;
     }
 
     public RegisteredItemsModel(){}
+
+    public BigInteger getRegisteredItemsId() {
+        return registeredItemsId;
+    }
+
+    public void setRegisteredItemsId(BigInteger registeredItemsId) {
+        this.registeredItemsId = registeredItemsId;
+    }
 
     public String getImageName() {
         return imageName;
