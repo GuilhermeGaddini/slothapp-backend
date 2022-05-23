@@ -30,5 +30,13 @@ public class UserItemsService {
     public List<UserItemsModel> getAllUserItemsByItemType(String itemType) {
         return userItemsRepositoryCustom.findAllUserItemsByItemType(itemType);
     }
+
+    public UserItemsModel insertUserItem(UserItemsModel userItemsModel){
+        return userItemsRepository.save(userItemsModel);
+    }
+
+    public UserItemsModel removeUserItem(UserItemsModel userItemsModel){
+        return userItemsRepositoryCustom.deleteByItemId(userItemsModel.getItemId());
+    }
 }
 
