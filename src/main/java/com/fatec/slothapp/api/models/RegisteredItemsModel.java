@@ -87,10 +87,11 @@ public class RegisteredItemsModel {
 
     @Override
     public String toString() {
-        return "registeredItemsModel{" +
-                "imageName='" + imageName + '\'' +
-                ", itemType='" + itemType + '\'' +
+        return "RegisteredItemsModel{" +
+                "registeredItemsId=" + registeredItemsId +
                 ", itemName='" + itemName + '\'' +
+                ", imageName='" + imageName + '\'' +
+                ", itemType='" + itemType + '\'' +
                 ", itemPrice=" + itemPrice +
                 ", messageRef=" + messageRef +
                 ", reactionRef='" + reactionRef + '\'' +

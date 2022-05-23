@@ -9,6 +9,7 @@ public class ActiveClassesModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private BigInteger activeClassesId;
     private BigInteger teacherId;
     private BigInteger txtId;
     private BigInteger vcId;
@@ -20,7 +21,8 @@ public class ActiveClassesModel {
     private String classDesc;
     private String taughtIn;
 
-    public ActiveClassesModel(BigInteger teacherId, BigInteger txtId, BigInteger vcId, String language, String classType, BigInteger vcTimestamp, BigInteger vcTime, BigInteger members, String classDesc, String taughtIn) {
+    public ActiveClassesModel(BigInteger activeClassesId, BigInteger teacherId, BigInteger txtId, BigInteger vcId, String language, String classType, BigInteger vcTimestamp, BigInteger vcTime, BigInteger members, String classDesc, String taughtIn) {
+        this.activeClassesId = activeClassesId;
         this.teacherId = teacherId;
         this.txtId = txtId;
         this.vcId = vcId;
@@ -35,6 +37,14 @@ public class ActiveClassesModel {
 
     public ActiveClassesModel(){
 
+    }
+
+    public BigInteger getActiveClassesId() {
+        return activeClassesId;
+    }
+
+    public void setActiveClassesId(BigInteger activeClassesId) {
+        this.activeClassesId = activeClassesId;
     }
 
     public BigInteger getTeacherId() {
@@ -119,8 +129,9 @@ public class ActiveClassesModel {
 
     @Override
     public String toString() {
-        return "activeClassesModel{" +
-                "teacherId=" + teacherId +
+        return "ActiveClassesModel{" +
+                "activeClassesId=" + activeClassesId +
+                ", teacherId=" + teacherId +
                 ", txtId=" + txtId +
                 ", vcId=" + vcId +
                 ", language='" + language + '\'' +

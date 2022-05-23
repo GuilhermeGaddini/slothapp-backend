@@ -9,6 +9,7 @@ public class MembersScoreModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private BigInteger membersScoreId;
     private BigInteger userId;
     private BigInteger userXp;
     private int userLvl;
@@ -16,7 +17,8 @@ public class MembersScoreModel {
     private BigInteger scorePoints;
     private BigInteger repTime;
 
-    public MembersScoreModel(BigInteger userId, BigInteger userXp, int userLvl, int userXpTime, BigInteger scorePoints, BigInteger repTime) {
+    public MembersScoreModel(BigInteger membersScoreId, BigInteger userId, BigInteger userXp, int userLvl, int userXpTime, BigInteger scorePoints, BigInteger repTime) {
+        this.membersScoreId = membersScoreId;
         this.userId = userId;
         this.userXp = userXp;
         this.userLvl = userLvl;
@@ -26,6 +28,14 @@ public class MembersScoreModel {
     }
 
     public MembersScoreModel(){}
+
+    public BigInteger getMembersScoreId() {
+        return membersScoreId;
+    }
+
+    public void setMembersScoreId(BigInteger membersScoreId) {
+        this.membersScoreId = membersScoreId;
+    }
 
     public BigInteger getUserId() {
         return userId;
@@ -77,8 +87,9 @@ public class MembersScoreModel {
 
     @Override
     public String toString() {
-        return "membersScoreModel{" +
-                "userId=" + userId +
+        return "MembersScoreModel{" +
+                "membersScoreId=" + membersScoreId +
+                ", userId=" + userId +
                 ", userXp=" + userXp +
                 ", userLvl=" + userLvl +
                 ", userXpTime=" + userXpTime +
