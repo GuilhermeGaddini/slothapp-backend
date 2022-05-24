@@ -4,12 +4,12 @@ import javax.persistence.*;
 import java.math.BigInteger;
 
 @Entity
-@Table(name = "useritems", uniqueConstraints={
-        @UniqueConstraint(columnNames = {"user_items_id", "item_id"})
-})
+@Table(name = "useritems")
+@IdClass(UserItemsId.class)
 public class UserItemsModel {
-
+    @Id
     private BigInteger itemId;
+    @Id
     private BigInteger userId;
     private String itemName;
     private String enable;
