@@ -49,6 +49,6 @@ public class MembersScoreService {
     }*/
 
     public MembersScoreModel getMemberScoreByUserId(BigInteger userId){
-        return membersScoreRepository.getById(userId);
+        return membersScoreRepositoryCustom.findByUserId(userId);
     }
 }

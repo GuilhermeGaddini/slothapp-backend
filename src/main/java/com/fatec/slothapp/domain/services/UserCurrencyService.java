@@ -19,6 +19,6 @@ public class UserCurrencyService {
     }
 
     public UserCurrencyModel getUserCurrencyByUserId(BigInteger userId) {
-        return userCurrencyRepository.getById(userId);
+        return userCurrencyRepositoryCustom.findUserCurrencyByUserId(userId);
     }
 }

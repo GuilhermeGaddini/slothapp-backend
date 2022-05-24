@@ -1,5 +1,7 @@
 package com.fatec.slothapp.domain.repositories;
 
+import com.fatec.slothapp.api.models.MembersScoreModel;
+
 import java.math.BigInteger;
 
 public interface MembersScoreRepositoryCustom {
@@ -12,4 +14,6 @@ public interface MembersScoreRepositoryCustom {
     BigInteger findScorePointByUserId(BigInteger userId);
 
     BigInteger findRepTimeByUserId(BigInteger userId);
+
+    MembersScoreModel findByUserId(BigInteger userId);
 }
