@@ -5,6 +5,7 @@ import com.fatec.slothapp.domain.repositories.UserItemsRepository;
 import com.fatec.slothapp.domain.repositories.UserItemsRepositoryCustom;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Array;
 import java.math.BigInteger;
 import java.util.List;
 
@@ -19,16 +20,8 @@ public class UserItemsService {
         this.userItemsRepositoryCustom = userItemsRepositoryCustom;
     }
 
-    public UserItemsModel getAllUserItemsByUserId(BigInteger userId) {
-        return userItemsRepository.getById(userId);
-    }
-
-    public List<UserItemsModel> getAllUserItemsByItemName(String itemName) {
-        return userItemsRepositoryCustom.findAllUserItemsByItemName(itemName);
-    }
-
-    public List<UserItemsModel> getAllUserItemsByItemType(String itemType) {
-        return userItemsRepositoryCustom.findAllUserItemsByItemType(itemType);
+    public List<UserItemsModel> getAllUserItemsByUserId(BigInteger userId) {
+        return userItemsRepositoryCustom.findUserItemsByUserId(userId);
     }
 
     public UserItemsModel insertUserItem(UserItemsModel userItemsModel){

@@ -8,9 +8,9 @@ import java.math.BigInteger;
 @IdClass(UserItemsId.class)
 public class UserItemsModel {
     @Id
-    private BigInteger itemId;
-    @Id
     private BigInteger userId;
+    @Id
+    private BigInteger itemId;
     private String itemName;
     private String enable;
     private String itemType;

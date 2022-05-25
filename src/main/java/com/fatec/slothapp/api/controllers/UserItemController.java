@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
+import java.util.List;
 
 @RestController
 @RequestMapping("/userItem")
@@ -19,7 +20,7 @@ public class UserItemController {
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<UserItemsModel> getUserItemsByUserId(@PathVariable BigInteger userId){
+    public ResponseEntity<List<UserItemsModel>> getUserItemsByUserId(@PathVariable BigInteger userId){
         try{
             return new ResponseEntity<>(this.userItemsService.getAllUserItemsByUserId(userId), HttpStatus.OK);
         } catch (Exception e){
