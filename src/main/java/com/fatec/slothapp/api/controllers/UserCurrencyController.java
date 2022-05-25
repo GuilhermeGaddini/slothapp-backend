@@ -4,10 +4,7 @@ import com.fatec.slothapp.api.models.UserCurrencyModel;
 import com.fatec.slothapp.domain.services.UserCurrencyService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
 
@@ -25,6 +22,24 @@ public class UserCurrencyController {
     public ResponseEntity<UserCurrencyModel> getUserCurrencyByUserId(@PathVariable BigInteger userId){
         try{
             return new ResponseEntity<>(this.userCurrencyService.getUserCurrencyByUserId(userId), HttpStatus.OK);
+        } catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/discountItemPrice")
+    public ResponseEntity<UserCurrencyModel> discountItemPriceOnUserMoney(@PathVariable int itemPrice, @PathVariable BigInteger userId){
+        try{
+            return new ResponseEntity<>(this.userCurrencyService.discountItemPriceOnUserCurrency(itemPrice, userId), HttpStatus.OK);
+        } catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/addCurrency")
+    public ResponseEntity<UserCurrencyModel> addCurrencyToUserMoney(@PathVariable int currencyValor, @PathVariable BigInteger userId){
+        try{
+            return new ResponseEntity<>(this.userCurrencyService.addCurrencyToUser(currencyValor, userId), HttpStatus.OK);
         } catch (Exception e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

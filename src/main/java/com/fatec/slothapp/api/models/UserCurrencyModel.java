@@ -2,6 +2,7 @@ package com.fatec.slothapp.api.models;
 
 import javax.persistence.*;
 import java.math.BigInteger;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "usercurrency")
@@ -11,13 +12,13 @@ public class UserCurrencyModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger userId;
     private BigInteger userMoney;
-    private BigInteger lastPurchaseTs;
+    private Timestamp lastPurchaseTs;
     private BigInteger userClasses;
     private BigInteger userClassReward;
     private BigInteger userHosted;
     private BigInteger userLotto;
 
-    public UserCurrencyModel(BigInteger userId, BigInteger userMoney, BigInteger lastPurchaseTs, BigInteger userClasses, BigInteger userClassReward, BigInteger userHosted, BigInteger userLotto) {
+    public UserCurrencyModel(BigInteger userId, BigInteger userMoney, Timestamp lastPurchaseTs, BigInteger userClasses, BigInteger userClassReward, BigInteger userHosted, BigInteger userLotto) {
         this.userId = userId;
         this.userMoney = userMoney;
         this.lastPurchaseTs = lastPurchaseTs;
@@ -45,11 +46,11 @@ public class UserCurrencyModel {
         this.userMoney = userMoney;
     }
 
-    public BigInteger getLastPurchaseTs() {
+    public Timestamp getLastPurchaseTs() {
         return lastPurchaseTs;
     }
 
-    public void setLastPurchaseTs(BigInteger lastPurchaseTs) {
+    public void setLastPurchaseTs(Timestamp lastPurchaseTs) {
         this.lastPurchaseTs = lastPurchaseTs;
     }
 
@@ -87,7 +88,7 @@ public class UserCurrencyModel {
 
     @Override
     public String toString() {
-        return "userCurrencyModel{" +
+        return "UserCurrencyModel{" +
                 "userId=" + userId +
                 ", userMoney=" + userMoney +
                 ", lastPurchaseTs=" + lastPurchaseTs +
